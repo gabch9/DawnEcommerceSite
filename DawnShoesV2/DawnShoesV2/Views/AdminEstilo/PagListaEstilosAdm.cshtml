@@ -1,0 +1,89 @@
+﻿@model IEnumerable<DawnShoesV2.Models.ListaEstiloViewModel>
+
+@section DataTablesStyles
+{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+}
+
+@section ToastStyles
+{
+    @Styles.Render("~/Content/Plugins/JqueryToastPlugin/jquery.toast.min.css")
+}
+
+@section CustomScripts
+{
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    @Scripts.Render("~/Scripts/Custom/DataTableScripts.js")
+}
+
+@section ToastScripts
+{
+    @Scripts.Render("~/Content/Plugins/JqueryToastPlugin/jquery.toast.min.js")
+}
+
+@{
+    ViewBag.Title = "Lista de estilos";
+}
+
+<br />
+
+<div class="row align-top table-title">
+    <div class="col-sm-12">
+        <h2>Lista de estilos</h2>
+    </div>
+    <div class="col-sm-12 text-left align-bottom" id="listaOpciones">
+        <a href="/AdminEstilo/PagCreacionEstiloAdm" class="btn btn-outline-success"><img src="~/Content/Plugins/iconic-master/png/plus-2x.png" /> Agregar estilo</a>
+        <a href="/Color/PagListaColoresAdm" class="btn btn-outline-primary">Lista de colores</a>
+        <a href="/Genero/PagListaGeneroAdm" class="btn btn-outline-primary">Lista de generos</a>
+        <a href="/Talla/PagListaTallaAdm" class="btn btn-outline-primary">Lista de tallas</a>
+        <a href="/Edad/PagListaEdadesAdm" class="btn btn-outline-primary">Lista de edades</a>
+        <a href="/ClasificacionZapato/PagListaClasificacionZapatoAdm" class="btn btn-outline-primary">Lista de clasificaciones</a>
+    </div>
+    <div class="col-sm-12">
+        <hr />
+    </div>
+</div>
+<div class="table-responsive-sm">
+    <table class="table table-striped table-hover" id="tablaEstilos">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descuento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Color)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecioTotalVenta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ganancia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Existencia)
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

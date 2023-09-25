@@ -1,0 +1,38 @@
+﻿/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Estilo para el file input*/
+
+#escogerImgField {
+    visibility: hidden;
+    z-index: -2;
+}
+
+#AgregarImagenContainer img {
+    cursor: pointer;
+}
+
+#upload-demo {
+    width: 450px;
+    height: 450px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+}
+
+#listaOpciones a {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#headSmallTable a {
+    margin-bottom: 10px;
+}
+#headSmallTable button {
+    margin-bottom: 10px;
+}
+
+

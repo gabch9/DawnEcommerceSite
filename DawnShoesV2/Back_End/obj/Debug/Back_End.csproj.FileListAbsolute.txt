@@ -1,0 +1,39 @@
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\bin\Debug\Back_End.dll.config
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\bin\Debug\Back_End.dll
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\bin\Debug\Back_End.pdb
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\bin\Debug\EntityFramework.dll
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\bin\Debug\EntityFramework.xml
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.csproj.CopyComplete
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.dll
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.pdb
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.Create_Zapato_Details_Classes_FK1.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.csproj.GenerateResource.cache
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.estilosV1.resources
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\bin\Debug\Back_End.dll.config
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\bin\Debug\Back_End.dll
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\bin\Debug\Back_End.pdb
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\bin\Debug\EntityFramework.dll
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\bin\Debug\EntityFramework.xml
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.csprojAssemblyReference.cache
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.Create_Zapato_Details_Classes_FK1.resources
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.estilosV1.resources
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.csproj.GenerateResource.cache
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.csproj.CoreCompileInputs.cache
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.csproj.CopyComplete
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.dll
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.pdb
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.structureupdate.resources
+C:\Users\gchinchillav\Desktop\Dawn Shoes\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.structureupdate.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.StructureChange2.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.AddedImages.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.AgregueBoolFotoPrincipal.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.AgregueEstiloDeLaFoto.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.AgregueKeyDeLaFoto.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.structureChangeTallas.resources
+C:\Users\kevin\Desktop\Dawn Shoes V2\DawnShoesV2\Back_End\obj\Debug\Back_End.Migrations.cambioFKTallaDM.resources

@@ -1,0 +1,459 @@
+﻿@model DawnShoesV2.Models.PagDetallesEstiloAdmViewModel
+@section ToastStyles
+{
+    @Styles.Render("~/Content/Plugins/JqueryToastPlugin/jquery.toast.min.css")
+}
+@section CroppieStyles
+{
+    @Styles.Render("~/Content/Plugins/Croppie/croppie.css")
+}
+@section ToastScripts
+{
+    @Scripts.Render("~/Content/Plugins/JqueryToastPlugin/jquery.toast.min.js")
+}
+
+@section CustomScripts{
+    @Scripts.Render("~/Scripts/Custom/Creacion-EdicionEstilos.js")
+}
+
+@section CroppieScripts
+{
+    @Scripts.Render("~/Content/Plugins/Croppie/croppie.min.js")
+    @Scripts.Render("~/Scripts/Custom/CroppieScripts.js")
+}
+
+@section ScriptDespuesCreacionEstilo
+{
+
+    @if (ViewBag.message != null)
+    {
+        <script type="text/javascript">
+            $.toast({
+                text: "Elemento creado de manera exitosa", // Text that is to be shown in the toast
+
+                icon: 'success', // Type of toast icon
+                showHideTransition: 'fade', // fade, slide or plain
+                allowToastClose: true, // Boolean value true or false
+                hideAfter: 6000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                position: 'bottom-center', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+
+
+
+                textAlign: 'center',  // Text alignment i.e. left, right or center
+                loader: true,  // Whether to show loader or not. True by default
+                loaderBg: '#9EC600',  // Background color of the toast loader
+                beforeShow: function () { }, // will be triggered before the toast is shown
+                afterShown: function () { }, // will be triggered after the toat has been shown
+                beforeHide: function () { }, // will be triggered before the toast gets hidden
+                afterHidden: function () { }  // will be triggered after the toast has been hidden
+            });
+        </script>
+    }
+
+}
+
+@{
+    ViewBag.Title = "Detalles de estilo";
+}
+<div class="row">
+    <div class="col">
+        <br />
+    </div>
+</div>
+<div class="row">
+    <!--Spaces-->
+    <div class="col-sm-1">
+        <br />
+    </div>
+    <div class="col-sm-11 align-top text-left">
+        <h1>Detalles de estilo</h1>
+    </div>
+    <!--Spaces-->
+    <div class="col-sm-1">
+        <br />
+    </div>
+    <div class="col-sm-3 text-left align-bottom">
+        <a href="/AdminEstilo/PagListaEstilosAdm" class="btn btn-outline-success"><img src="~/Content/Plugins/iconic-master/png/share-3x.png" style="transform: scaleX(-1)" /><span></span></a>
+        <a href="/AdminEstilo/PagListaEstilosAdm" class="btn btn-outline-primary"><img src="~/Content/Plugins/iconic-master/png/pencil-3x.png" /><span></span></a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <br />
+    </div>
+    <div class="col-sm-6">
+
+        <!--Seccion para subir una adicional-->
+        <div class="row">
+            <div class="col-sm-12">
+                <hr />
+            </div>
+            <div class="col-sm-12 align-top" id="AgregarImagenContainer">
+                <h2>Galeria de imagenes</h2>
+                <label for="escogerImgField" class="btn btn-outline-success">
+                    <img src="~/Content/Plugins/iconic-master/png/plus-2x.png" />
+                    <img src="~/Content/Plugins/iconic-master/png/image-3x.png" />
+                </label>
+                <input type="file" id="escogerImgField" class="item-img file center-block" name="file_photo" />
+            </div>
+        </div>
+
+        <div class="row" id="Galeria">
+            @if (Model.ListaImagenEstilo.Count() > 0)
+            {
+
+                foreach (var a in Model.ListaImagenEstilo)
+                {
+                    <div class="col-sm-4" id="ContenedorImagen-@a.ImagenEstiloDMId">
+                        <div class="col-sm-4"><br /></div>
+                        <div class="col-sm-12 img-thumbnail">
+                            <div class="row text-center">
+                                <div class="col-sm-12">
+                                    <hr />
+                                </div>
+                                <div class="col-sm-12">
+                                    <img src="@a.Path" class="img-fluid rounded" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <hr />
+                                </div>
+                            </div>
+                            <div class="row">
+                                @if (a.EsPrincipal == true)
+                                {
+                                    <div class="col text-center">
+                                        <button type="button" class="btn btn-warning"><img src="~/Content/Plugins/iconic-master/png/star-3x.png" class="align-top" /></button>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col text-center">
+                                        <button type="button" class="btn btn-outline-warning"><img src="~/Content/Plugins/iconic-master/png/star-3x.png" class="align-top" /></button>
+                                    </div>
+                                }
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-outline-danger borrarImg" value="@a.ImagenEstiloDMId"><img src="~/Content/Plugins/iconic-master/png/trash-3x.png" class="align-top text-right" /></button>
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-sm-12">
+                    <h2>El estilo no cuenta con imagenes</h2>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!--Detalles de talla-->
+    <div class="col-sm-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioCompra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrecioCompra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioVenta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrecioVenta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImpuestoVenta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImpuestoVenta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ganancia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ganancia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImpuestoCompra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImpuestoCompra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PorcentajeUtilidad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PorcentajeUtilidad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioTotalCompra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrecioTotalCompra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioTotalVenta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrecioTotalVenta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descuento)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descuento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genero)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genero)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Edad)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Edad)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Clasificacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Clasificacion)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+<!--Espacio-->
+<div class="row">
+    <div class="col-sm-1">
+        <br />
+    </div>
+    <div class="col-sm-10">
+        <hr />
+    </div>
+    <div class="col-sm-1">
+        <br />
+    </div>
+</div>
+
+<!--Seccion de tabla de tallas-->
+<div class="row align-top table-title">
+    <div class="col-sm-1">
+        <br />
+    </div>
+    <div class="col-sm-11">
+        <h2>Tallas</h2>
+    </div>
+
+    <div class="col-sm-1">
+        <br />
+    </div>
+    <div class="col-sm text-left align-bottom">
+        <button class="btn btn-outline-success" data-toggle="modal" data-target="#tallasPop"><img src="~/Content/Plugins/iconic-master/png/plus-2x.png" /><span> Agregar Talla</span></button>
+    </div>
+</div>
+
+<!--Espacio-->
+<div class="row">
+    <div class="col-sm-12">
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <br />
+    </div>
+    <!--head-->
+    <div class="col-sm-10">
+        <table class="table responsive table-striped" id="tablaEstilosTallas">
+            <thead>
+                <tr>
+                    <th>Talla</th>
+                    <th>Medida en centímetros</th>
+                    <th>Cantidad</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <!--Body-->
+            <tbody>
+                @if (Model.ListaEstilosTallas.Count() != 0)
+                {
+                    foreach (DawnShoesV2.Models.EstilosTallasViewModel item in Model.ListaEstilosTallas)
+                    {
+                        <tr id=@item.EstiloDMId>
+                            <td>@item.NumeroTalla</td>
+                            <td>@item.MedidaCM</td>
+                            <td>@item.CantidadDisponible</td>
+                            <!--Acciones-->
+                            <td>
+                                <button type="button" class="btn btn-default agregar" value=@item.EstiloDMTallaDMId>Agregar</button>
+                                <button type="button" class="btn btn-default reducir" value=@item.EstiloDMTallaDMId>Reducir</button>
+                                <button type="button" class="btn btn-default eliminar" value=@item.EstiloDMTallaDMId>Eliminar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <!--Seccion si no tiene tallas-->
+                    <tr>
+                        <td>
+                            <h3>El estilo no cuenta con tallas</h3>
+                        </td>
+                        <td>
+                            <h3></h3>
+                        </td>
+                        <td>
+                            <h3></h3>
+                        </td>
+                        <td>
+                            <h3></h3>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Croppie section-->
+<div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--Titulo-->
+            <div class="modal-header">
+                <h4 class="modal-title text-left" id="myModalLabel">
+                    Cargue y modifique la imagen
+                </h4>
+                <button id="cerrarModalBtn" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <!--Cuerpo y donde va a estar el cropper-->
+            <div class="modal-body">
+                <div class="row text-center">
+                    <div id="upload-demo" class="col-sm-12"></div>
+                </div>
+            </div>
+            <!--Acciones-->
+            <div class="modal-footer">
+                <button type="button" id="cropImageBtn" class="btn btn-outline-primary" value="@Model.EstiloDMId"><img src="~/Content/Plugins/iconic-master/png/file-3x.png"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Tallas modal section-->
+<div class="modal fade" id="tallasPop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--Titulo-->
+            <div class="modal-header">
+                <h4 class="modal-title text-left" id="myModalLabel">
+                    Ingrese los datos
+                </h4>
+                <button id="cerrarModalBtn" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <!--Cuerpo donde van a estar los dropdowns y fields-->
+            <div class="modal-body">
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.EstilosTallasViewModel.NumeroTalla, htmlAttributes: new { @class = "control-label" })
+                    </div>
+
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(model => model.EstilosTallasViewModel.TallaDMId, new SelectList(Model.ListaTalla, "TallaDMId", "NumeroTalla"), " Seleccionar talla ", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EstilosTallasViewModel.TallaDMId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-12">
+                        <br />
+                    </div>
+
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.EstilosTallasViewModel.MedidaCM, htmlAttributes: new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.EstilosTallasViewModel.MedidaCM, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EstilosTallasViewModel.MedidaCM, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-12">
+                        <br />
+                    </div>
+
+                    <div class="col-sm-12">
+                        @Html.LabelFor(model => model.EstilosTallasViewModel.CantidadDisponible, htmlAttributes: new { @class = "control-label" })
+                    </div>
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.EstilosTallasViewModel.CantidadDisponible, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EstilosTallasViewModel.CantidadDisponible, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-12">
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <!--Acciones-->
+            <div class="modal-footer">
+                <button type="button" id="saveTallaBtn" class="btn btn-outline-primary" value="@Model.EstiloDMId"><img src="~/Content/Plugins/iconic-master/png/file-3x.png"></button>
+            </div>
+        </div>
+    </div>
+</div>

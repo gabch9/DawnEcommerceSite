@@ -1,0 +1,101 @@
+﻿@model DawnShoesV2.Models.ColorViewModel
+@{
+    ViewBag.Title = "Lista de colores";
+}
+@section ToastStyles
+{
+    @Styles.Render("~/Content/Plugins/JqueryToastPlugin/jquery.toast.min.css")
+}
+@section CustomScripts
+{
+    @Scripts.Render("/Scripts/Custom/Creacion-EdicionEstilos.js");
+}
+@section ToastScripts
+{
+    @Scripts.Render("~/Content/Plugins/JqueryToastPlugin/jquery.toast.min.js")
+}
+
+<div class="row text-center">
+    <div class="col-sm-12">
+        <br />
+    </div>
+    <div class="col-sm-12">
+        <h2>Lista de colores</h2>
+    </div>
+
+    <div class="col-sm-2"><br /></div>
+    <div class="col-sm-8 text-left" id="headSmallTable">
+        <button id="agregarColorBtn" class="btn btn-outline-success" data-toggle="modal" data-target="#coloresPop"><img src="~/Content/Plugins/iconic-master/png/plus-3x.png" /></button>
+    </div>
+    <div class="col-sm-2"><br /></div>
+
+    <div class="col-sm-2"><br /></div>
+    <div class="col-sm-8">
+        <table class="table table-striped table-hover" id="tablaColores">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="align-middle">
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model.ListaColores)
+            {
+                <tr id="celda-@item.ColorDMId">
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        <button class='eliminar' style='padding:10px; border:none; background-color: rgba(0, 0, 0, 0)' value='@item.ColorDMId'><img src='/Content/Plugins/iconic-master/png/trash-3x.png' /></button>
+                        <button class='editar' data-toggle="modal" data-target="#coloresPop" style='padding:10px; border:none; background-color: rgba(0, 0, 0, 0)' value='@item.ColorDMId'><img src="~/Content/Plugins/iconic-master/png/pencil-3x.png" /></button>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="col-sm-2"><br /></div>
+</div>
+
+<!--Color modal section-->
+<div class="modal fade" id="coloresPop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--Titulo-->
+            <div class="modal-header">
+                <h4 class="modal-title text-left" id="myModalLabel">
+                    Ingrese los datos
+                </h4>
+                <button id="cerrarModalBtn" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <!--Cuerpo donde van a estar los dropdowns y fields-->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-10 text-left">
+                        @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })
+                    </div>
+
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-10 text-center">
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-sm-12">
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <!--Acciones-->
+            <div class="modal-footer">
+                <button type="button" id="saveColorBtn" class="btn btn-outline-primary" value=""><img src="~/Content/Plugins/iconic-master/png/file-3x.png"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,191 @@
+﻿@model DawnShoesV2.Models.EstiloCUViewModel
+
+@{
+    ViewBag.Title = "PagCreacionEstilo";
+}
+
+@section CustomScripts{
+    @Scripts.Render("~/Scripts/Custom/Creacion-EdicionEstilos.js")
+}
+
+@using (Html.BeginForm("CrearEstilo", "AdminEstilo", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ZapatoViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("descripcion", "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--Si no hay datos disponibles en cualquiera de las listas se va a generar un link que lleve a la pagina de creacion de cada uno-->
+        @if (Model.listaGeneros.Count() != 0)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.GeneroDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.GeneroDMId, new SelectList(Model.listaGeneros, "GeneroDMId", "Descripcion"), " Seleccionar género ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.GeneroDMId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.GeneroDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <a href="/GeneroController/PagCreacionGeneroAdm">No hay generos disponibles en la base de datos. Ingrese aqui para crear uno</a>
+                </div>
+            </div>
+
+        }
+
+        @if (Model.listaClasificacionZapatos.Count() != 0)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ClasificacionZapatoDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.ClasificacionZapatoDMId, new SelectList(Model.listaClasificacionZapatos, "ClasificacionZapatoDMId", "Descripcion"), " Seleccionar clasificacion ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ClasificacionZapatoDMId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ClasificacionZapatoDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <a href="/ClasificacionZapato/PagCreacionClasificacionZapatoAdm">No hay clasificaciones disponibles en la base de datos. Ingrese aqui para crear una</a>
+                </div>
+            </div>
+
+        }
+
+        @if (Model.listaColores.Count() != 0)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ColorDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.ColorDMId, new SelectList(Model.listaColores, "ColorDMId", "Descripcion"), " Seleccionar color ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ColorDMId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ColorDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <a href="/Color/PagCreacionColorAdm">No hay colores disponibles en la base de datos. Ingrese aqui para crear una</a>
+                </div>
+            </div>
+
+        }
+
+        @if (Model.listaEdad.Count() != 0)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.EdadDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.EdadDMId, new SelectList(Model.listaEdad, "EdadDMId", "Descripcion"), " Seleccionar clasificacion ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.EdadDMId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.EdadDMId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <a href="/Edad/PagCreacionEdadAdm">No hay edades disponibles en la base de datos. Ingrese aqui para crear una</a>
+                </div>
+            </div>
+
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrecioCompra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioCompra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrecioCompra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImpuestoCompra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImpuestoCompra, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImpuestoCompra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrecioTotalCompra, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioTotalCompra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrecioTotalCompra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ganancia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ganancia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ganancia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PorcentajeUtilidad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PorcentajeUtilidad, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PorcentajeUtilidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrecioVenta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioVenta, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrecioVenta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImpuestoVenta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImpuestoVenta, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImpuestoVenta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrecioTotalVenta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioTotalVenta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrecioTotalVenta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descuento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descuento, new { htmlAttributes = new { @readonly = "readonly", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descuento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" id="btnGuardarZapato" />
+            </div>
+        </div>
+    </div>
+}
+

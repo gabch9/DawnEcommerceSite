@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DawnShoesV2.Models.GeneroViewModel>
+
+@{
+    ViewBag.Title = "PagListaGeneroAdm";
+}
+
+<h2>PagListaGeneroAdm</h2>
+
+<p>
+    @Html.ActionLink("Agregar genero", "PagCreacionGeneroAdm")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditarGenero", new { id=item.GeneroDMId }) ||
+            @Html.ActionLink("Delete", "BorrarGenero", new { id=item.GeneroDMId })
+        </td>
+    </tr>
+}
+
+</table>

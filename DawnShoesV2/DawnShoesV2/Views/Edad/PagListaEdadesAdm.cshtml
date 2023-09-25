@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DawnShoesV2.Models.EdadViewModel>
+
+@{
+    ViewBag.Title = "PagListaEdadesAdm";
+}
+
+<h2>PagListaEdadesAdm</h2>
+
+<p>
+    @Html.ActionLink("Agregar edad", "PagCreacionEdadAdm")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "PagEditarEdadAdm", new { id=item.EdadDMId }) |
+            @Html.ActionLink("Borrar", "BorrarEdad", new { id=item.EdadDMId })
+        </td>
+    </tr>
+}
+
+</table>
